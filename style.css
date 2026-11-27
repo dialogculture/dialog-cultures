@@ -1,1721 +1,662 @@
-/* ==============================
-   1. ОСНОВНЫЕ НАСТРОЙКИ
-============================== */
-
-:root {
-    --peach: #FFE1D2;
-    --background: #FFF9F6;
-    --purple: #76518E;
-    --dark-purple: #493B50;
-    --pink: #E98AAE;
-    --coral: #EF7777;
-    --blue: #91C9E8;
-    --lavender: #EDE2F4;
-    --white: #FFFFFF;
-    --text: #514653;
-    --muted: #887C8A;
-    --shadow: 0 10px 30px rgba(73, 59, 80, 0.08);
-    --radius: 22px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+}
+ body {
+    background-color: #FFE1D2;
+    font-family: Arial, sans-serif;
+    color: #493B50;
+    margin: 0;
 }
 
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.7;
+h1 {
+    color: #76518E;
+    text-align: center;
+    font-size: 42px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+h2 {
+    color: #D46D91;
+    text-align: center;
+    font-size: 24px;
 }
 
-img {
-    display: block;
-    max-width: 100%;
+p {
+    color: #465568;
+    text-align: center;
+    font-size: 18px;
 }
-
-.container {
-    width: min(1160px, 90%);
-    margin: 0 auto;
-}
-
-
-/* ==============================
-   2. ШАПКА И НАВИГАЦИЯ
-============================== */
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 249, 246, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(118, 81, 142, 0.1);
-}
-
-.header-inner {
-    min-height: 76px;
+header {
+    background-color: #76518E;
+    color: white;
+    padding: 25px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 25px;
 }
-
 .logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: azure;
+}
+nav {
     display: flex;
-    align-items: center;
-    gap: 11px;
-    color: var(--purple);
-    font-weight: 800;
-    font-size: 20px;
-    white-space: nowrap;
+    gap: 30px;
 }
-
-.logo-icon {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    background: var(--lavender);
-    border-radius: 14px;
-    font-size: 23px;
+nav a {
+    color: #FFF9F6;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    transition: 0.3s;
 }
-
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 20px;
+nav a:hover {
+    color:#91C9E8
 }
-
-.navigation a {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--dark-purple);
-    transition: color 0.2s ease;
-}
-
-.navigation a:hover {
-    color: var(--pink);
-}
-
-
-/* ==============================
-   3. ГЛАВНЫЙ ЭКРАН
-============================== */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    padding: 90px 0 100px;
-    background:
-        radial-gradient(circle at 85% 15%, #F8D9E5 0, transparent 30%),
-        radial-gradient(circle at 5% 90%, #FBE1D4 0, transparent 35%),
-        var(--background);
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
-    gap: 65px;
-}
-
-.eyebrow {
-    display: inline-block;
-    color: var(--pink);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-}
-
-.hero h1 {
-    color: var(--dark-purple);
-    font-size: clamp(48px, 7vw, 82px);
-    line-height: 1.05;
-    margin-bottom: 18px;
-    letter-spacing: -3px;
-}
-
-.hero h1 span {
-    color: var(--purple);
-}
-
-.hero-subtitle {
-    font-size: 21px;
-    font-weight: 700;
-    color: var(--purple);
-    margin-bottom: 18px;
-}
-
-.hero-description {
-    max-width: 500px;
-    color: var(--muted);
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    border: none;
-    border-radius: 30px;
-    padding: 14px 27px;
-    background: var(--purple);
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.button:hover {
-    background: var(--dark-purple);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-
-/* Фотографии на главном экране */
-
-.hero-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: center;
-}
-
-.hero-image {
-    position: relative;
-    height: 360px;
-    overflow: hidden;
-    border-radius: 25px;
-    box-shadow: var(--shadow);
-}
-
-.hero-image-left {
-    transform: translateY(-18px);
-}
-
-.hero-image-right {
-    transform: translateY(18px);
-}
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.hero-image:hover img {
-    transform: scale(1.06);
-}
-
-.hero-image span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 30px 18px 16px;
-    color: white;
-    font-size: 18px;
-    font-weight: 800;
-    background: linear-gradient(transparent, rgba(40, 30, 45, 0.75));
-}
-
-
-/* ==============================
-   4. ОБЩЕЕ ОФОРМЛЕНИЕ РАЗДЕЛОВ
-============================== */
-
-.section {
-    padding: 85px 0;
-}
-
-.section-colored {
-    background: #F7EEF5;
-}
-
-.section-heading {
-    max-width: 700px;
-    margin: 0 auto 45px;
+main {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 40px;
     text-align: center;
 }
 
-.section-heading h2 {
-    color: var(--dark-purple);
-    font-size: clamp(30px, 4vw, 43px);
-    line-height: 1.2;
-    margin-bottom: 14px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    font-size: 16px;
-}
-
-
-/* ==============================
-   5. О ПРОЕКТЕ
-============================== */
-
-.about-intro {
-    max-width: 900px;
-    margin: 0 auto 35px;
-    padding: 30px 35px;
-    background: var(--white);
-    border-left: 5px solid var(--pink);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.about-intro p + p {
-    margin-top: 15px;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.info-card {
-    padding: 28px;
-    border-radius: var(--radius);
-    background: var(--white);
-    box-shadow: var(--shadow);
-    transition: transform 0.25s ease;
-}
-
-.info-card:hover,
-.period-card:hover,
-.dialogue-card:hover {
-    transform: translateY(-6px);
-}
-
-.card-number {
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    border-radius: 15px;
-    background: var(--lavender);
-    color: var(--purple);
-    font-weight: 800;
+main h1 {
+    font-size: 48px;
+    color: #172b4d;
     margin-bottom: 20px;
 }
 
-.info-card h3,
-.dialogue-card h3 {
-    color: var(--dark-purple);
-    font-size: 20px;
-    margin-bottom: 12px;
+main h2 {
+    font-size: 26px;
+    color: #9f2638;
+    margin-bottom: 25px;
 }
 
-.info-card p,
-.dialogue-card p {
-    color: var(--muted);
-    font-size: 14px;
+main p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+#about {
+    background-color: #FFF9F6;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(23, 43, 77, 0.08);
 }
 
+#about h2 {
+    color: #9f2638;
+    margin-bottom: 20px;
+}
 
-/* ==============================
-   6. ИСТОРИЧЕСКАЯ ХРОНОЛОГИЯ
-============================== */
+#about p {
+    text-align: left;
+    line-height: 1.7;
+}
+#history {
+    background-color: #FFF9F6;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(23, 43, 77, 0.08);
+}
+
+#history h2 {
+    color: #9f2638;
+    margin-bottom: 20px;
+}
+
+#history p {
+    text-align: left;
+    line-height: 1.7;
+}
+#literature,
+#poetry,
+#survey,
+#reviews {
+    background-color: #FFF9F6;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(23, 43, 77, 0.08);
+}
+
+#literature h2,
+#poetry h2,
+#survey h2,
+#reviews h2 {
+    color: #9f2638;
+    margin-bottom: 20px;
+}
+
+#literature p,
+#poetry p,
+#survey p,
+#reviews p {
+    text-align: left;
+    line-height: 1.7;
+}
+#survey button {
+    background-color: #EF7777;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#survey button:hover {
+    background-color: #D46D91;
+    transform: translateY(-3px);
+}
+.hero {
+    background-color: #F3C5DC;
+    color: #493B50;
+    padding: 80px 30px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #76518E;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    color: #76518E;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+}
+#about,
+#history,
+#literature,
+#poetry,
+#survey,
+#reviews {
+    border: 2px solid #F3C5DC;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#about:hover,
+#history:hover,
+#literature:hover,
+#poetry:hover,
+#survey:hover,
+#reviews:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(118, 81, 142, 0.15);
+}
+.logo {
+    color: #FFE1D2;
+}
+.city-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.city {
+    width: 45%;
+}
+
+.city img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 4px solid white;
+    box-shadow: 0 5px 18px rgba(118, 81, 142, 0.2);
+    transition: transform 0.3s;
+}
+
+.city img:hover {
+    transform: scale(1.03);
+}
+
+.city h3 {
+    color: #76518E;
+    font-size: 22px;
+}
+#about {
+    background-color: #FFF9F6;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(118, 81, 142, 0.12);
+}
+
+#about h2 {
+    color: #76518E;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#about p {
+    color: #493B50;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+#history {
+    background-color: #FFF9F6;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
+}
+
+#history h2 {
+    color: #76518E;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 35px;
+}
 
 .timeline {
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 112px;
-    top: 10px;
-    bottom: 10px;
-    width: 3px;
-    background: #DCC8E6;
+.timecard {
+    background-color: #FCE5EF;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid #E98AAE;
+    transition: transform 0.3s;
 }
 
-.timeline-item {
-    position: relative;
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 40px;
-    margin-bottom: 28px;
+.timecard:hover {
+    transform: translateX(8px);
 }
 
-.timeline-date {
-    color: var(--purple);
+.timecard span {
+    color: #D46D91;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.timecard h3 {
+    color: #76518E;
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.timecard p {
+    color: #493B50;
     font-size: 17px;
-    font-weight: 800;
-    text-align: right;
-    padding-top: 22px;
+    line-height: 1.6;
+}
+#literature {
+    background-color: #FFF9F6;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
 }
 
-.timeline-content {
-    position: relative;
-    padding: 23px 28px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+#literature h2 {
+    color: #76518E;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.timeline-content::before {
-    content: "";
-    position: absolute;
-    left: -36px;
-    top: 29px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: var(--pink);
-    border: 4px solid #F7EEF5;
+#literature > p {
+    color: #493B50;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.timeline-content h3 {
-    color: var(--dark-purple);
+.literature-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.literature-card {
+    background-color: #FCE5EF;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid #E98AAE;
+    transition: transform 0.3s;
+}
+
+.literature-card:hover {
+    transform: translateX(8px);
+}
+
+.literature-card h3 {
+    color: #76518E;
+    font-size: 22px;
+}
+
+.literature-card span {
+    color: #D46D91;
+    font-weight: bold;
+}
+
+.literature-card p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.literature-conclusion {
+    background-color: #EDE2F4;
+    padding: 30px;
+    margin-top: 35px;
+    border-radius: 15px;
+    border-left: 6px solid #76518E;
+}
+
+.literature-conclusion h3 {
+    color: #76518E;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.literature-conclusion p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.6;
+}
+#poetry {
+    background-color: #FFF9F6;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
+}
+
+#poetry h2 {
+    color: #76518E;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.poetry-block {
+    background-color: #FCE5EF;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border-left: 6px solid #E98AAE;
+}
+
+.poetry-block h3 {
+    color: #76518E;
+    font-size: 23px;
+}
+
+.poetry-block p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.7;
+}
+.poetry-block h4 {
+    color: #D46D91;
     font-size: 19px;
     margin-bottom: 8px;
 }
 
-.timeline-content p {
-    color: var(--muted);
-    font-size: 14px;
+.philosopher-quote {
+    background-color: #EDE2F4;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 4px solid #76518E;
+    font-style: italic;
+}
+.philosopher {
+    margin-top: 25px;
 }
 
-
-/* ==============================
-   7. ИСТОРИЯ ЛИТЕРАТУРЫ
-============================== */
-
-.period-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+.philosopher h4 {
+    color: #76518E;
+    font-size: 21px;
 }
 
-.period-card {
-    position: relative;
-    overflow: hidden;
-    padding: 28px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: transform 0.25s ease;
+.philosopher blockquote {
+    background-color: #EDE2F4;
+    padding: 20px;
+    margin: 12px 0;
+    border-left: 5px solid #76518E;
+    border-radius: 12px;
+    color: #493B50;
+    font-style: italic;
+    line-height: 1.7;
 }
 
-.period-card:nth-child(1) {
-    border-top: 5px solid var(--pink);
+.note {
+    font-size: 14px !important;
+    color: #8A7B91 !important;
+    font-style: italic;
+}
+.translation-card {
+    background-color: #EDE2F4;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border-left: 5px solid #76518E;
 }
 
-.period-card:nth-child(2) {
-    border-top: 5px solid var(--blue);
+.translation-card span {
+    color: #D46D91;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.period-card:nth-child(3) {
-    border-top: 5px solid var(--coral);
+.translation-card p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.poetry-block ul {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.8;
+    padding-left: 25px;
 }
 
-.period-card:nth-child(4) {
-    border-top: 5px solid var(--purple);
+.translation-card h4 {
+    color: #76518E;
+    font-size: 19px;
+    margin-top: 0;
+}
+.writers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
 }
 
-.period-card:nth-child(5) {
-    border-top: 5px solid #B5A0D3;
+.writer-card {
+    background-color: #EDE2F4;
+    color: #76518E;
+    padding: 15px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.translation-card ul {
+    padding-left: 20px;
+    margin: 0;
 }
 
-.period-number {
-    display: block;
-    color: #E8DCEC;
-    font-size: 48px;
-    line-height: 1;
-    font-weight: 900;
-    margin-bottom: 20px;
-}
-
-.period-card h3 {
-    color: var(--dark-purple);
-    font-size: 20px;
+.translation-card li {
     margin-bottom: 8px;
+    line-height: 1.5;
 }
-
-.period-date {
-    display: inline-block;
-    color: var(--purple);
-    background: var(--lavender);
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.period-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-
-/* ==============================
-   8. ДИАЛОГ КУЛЬТУР
-============================== */
-
-.dialogue-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.dialogue-card {
+.synthesis-block {
+    background-color: #EDE2F4;
     padding: 30px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: transform 0.25s ease;
+    margin-top: 30px;
+    border-radius: 18px;
+    border-left: 6px solid #76518E;
 }
 
-.dialogue-card:nth-child(1) {
-    border-left: 5px solid var(--pink);
+.synthesis-block h3 {
+    color: #76518E;
+    font-size: 25px;
+    margin-top: 0;
 }
 
-.dialogue-card:nth-child(2) {
-    border-left: 5px solid var(--blue);
+.synthesis-block p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.7;
+}
+.dialogue-conclusion {
+    background-color: #FCE5EF;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 18px;
+    border-left: 6px solid #EF7777;
 }
 
-.dialogue-card:nth-child(3) {
-    border-left: 5px solid var(--coral);
+.dialogue-conclusion h3 {
+    color: #76518E;
+    font-size: 25px;
+    margin-top: 0;
 }
 
-.dialogue-card:nth-child(4) {
-    border-left: 5px solid var(--purple);
+.dialogue-conclusion p {
+    color: #493B50;
+    font-size: 17px;
+    line-height: 1.7;
+}
+#comparison {
+    background-color: #FFF9F6;
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
 }
 
-
-/* ==============================
-   9. ПОЭТИЧЕСКИЙ ДИАЛОГ
-============================== */
-
-.poetry-intro {
-    max-width: 850px;
-    margin: 0 auto 35px;
-    padding: 28px 32px;
-    border-radius: var(--radius);
-    background: var(--lavender);
-    color: var(--dark-purple);
+#comparison h2 {
+    color: #76518E;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 25px;
 }
 
-.poem-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+#comparison > p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.poem-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.poem-card {
+    flex: 1;
+    background-color: #FCE5EF;
+    padding: 25px;
+    border-radius: 15px;
+    border-top: 6px solid #E98AAE;
+}
+
+.poem-card h3 {
+    color: #76518E;
+}
+
+.poem-card h4 {
+    color: #D46D91;
+}
+
+.poem-card p {
+    line-height: 1.6;
+}
+
+.poem-card span {
+    color: #76518E;
+    font-weight: bold;
+}
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-label {
+    color: #D46D91;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    color: #76518E;
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    font-size: 18px;
+}
+
+.poem-cards {
+    display: flex;
     gap: 25px;
 }
 
 .poem-card {
-    padding: 32px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    flex: 1;
+    background: #FFF9F6;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 6px 20px rgba(118, 81, 142, 0.12);
+    transition: transform 0.3s;
 }
 
-.poem-card-pink {
-    background: #FCEAF0;
+.poem-card:hover {
+    transform: translateY(-7px);
 }
 
-.poem-card-blue {
-    background: #E8F5FB;
-}
-
-.poem-label {
-    display: inline-block;
-    padding: 6px 13px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.poem-number {
+    color: #E98AAE;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 .poem-card h3 {
-    color: var(--dark-purple);
-    font-size: 24px;
-    margin: 18px 0 5px;
-}
-
-.poem-author {
-    color: var(--purple);
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.poem-card > p:last-child {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.analysis-placeholder {
-    margin-top: 30px;
-    padding: 32px;
-    border: 2px dashed #D9C7E2;
-    border-radius: var(--radius);
-    text-align: center;
-    background: #FFFCFD;
-}
-
-.analysis-placeholder h3 {
-    color: var(--purple);
-    margin-bottom: 10px;
-}
-
-.analysis-placeholder p {
-    color: var(--muted);
-}
-
-
-/* ==============================
-   10. АНКЕТИРОВАНИЕ
-============================== */
-
-.survey-card {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 38px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.survey-card h3 {
-    color: var(--dark-purple);
-    font-size: 24px;
-    margin-bottom: 18px;
-}
-
-.survey-card p {
-    color: var(--muted);
-    margin-bottom: 14px;
-}
-
-.survey-status {
-    margin-top: 25px;
-    padding: 18px;
-    border-radius: 15px;
-    background: var(--lavender);
-    color: var(--purple);
-    font-size: 14px;
-    font-weight: 600;
-}
-
-
-/* ==============================
-   11. ОТЗЫВЫ
-============================== */
-
-.review-form {
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 35px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.review-form label {
-    display: block;
-    color: var(--dark-purple);
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.review-form input,
-.review-form textarea {
-    display: block;
-    width: 100%;
-    padding: 14px 16px;
-    margin-bottom: 22px;
-    border: 1px solid #E7DDE9;
-    border-radius: 13px;
-    background: #FFFCFD;
-    color: var(--text);
-    font: inherit;
-    outline: none;
-    transition: border-color 0.2s ease;
-}
-
-.review-form input:focus,
-.review-form textarea:focus {
-    border-color: var(--purple);
-}
-
-.review-form textarea {
-    resize: vertical;
-    min-height: 130px;
-}
-
-.form-note {
-    margin-top: 15px;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-
-/* ==============================
-   12. ПОДВАЛ САЙТА
-============================== */
-
-.footer {
-
-padding: 45px 0 20px;
-    background: var(--dark-purple);
-    color: var(--white);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    padding-bottom: 30px;
-}
-
-.footer-content h3 {
+    color: #76518E;
     font-size: 23px;
-    margin-bottom: 5px;
 }
 
-.footer-content p {
-    color: #D7C8DB;
-    font-size: 14px;
+.poem-card h4 {
+    color: #D46D91;
 }
 
-.footer-link {
-    color: #F3C9DA;
-    font-weight: 700;
-    transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-    color: var(--white);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 18px;
-    text-align: center;
-    color: #C8BACD;
-    font-size: 12px;
-}
-
-
-/* ==============================
-   13. АДАПТАЦИЯ ПОД ПЛАНШЕТЫ
-============================== */
-
-@media (max-width: 950px) {
-
-    .header-inner {
-        flex-direction: column;
-        padding: 15px 0;
-    }
-
-    .navigation {
-        justify-content: center;
-        gap: 12px 18px;
-    }
-
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
-
-    .hero-text {
-        text-align: center;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-images {
-        max-width: 650px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .card-grid,
-    .period-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-/* ==============================
-   14. АДАПТАЦИЯ ПОД ТЕЛЕФОНЫ
-============================== */
-
-@media (max-width: 600px) {
-
-    .container {
-        width: 92%;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .header-inner {
-        gap: 12px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .navigation {
-        gap: 9px 14px;
-    }
-
-    .navigation a {
-        font-size: 12px;
-    }
-
-    .hero {
-        padding: 60px 0 75px;
-    }
-
-    .hero h1 {
-        font-size: 52px;
-    }
-
-    .hero-subtitle {
-        font-size: 17px;
-    }
-
-    .hero-images {
-        gap: 10px;
-    }
-
-    .hero-image {
-        height: 230px;
-        border-radius: 17px;
-    }
-
-    .hero-image-left {
-        transform: translateY(-10px);
-    }
-
-    .hero-image-right {
-        transform: translateY(10px);
-    }
-
-    .hero-image span {
-        font-size: 14px;
-        padding: 25px 10px 12px;
-    }
-
-    .section-heading {
-        margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-        font-size: 30px;
-    }
-
-    .card-grid,
-    .period-grid,
-    .dialogue-grid,
-    .poem-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-intro,
-    .info-card,
-    .period-card,
-    .dialogue-card,
-    .poem-card,
-    .survey-card,
-    .review-form {
-        padding: 23px;
-    }
-
-    .timeline::before {
-        left: 7px;
-    }
-
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding-left: 28px;
-    }
-
-    .timeline-date {
-        text-align: left;
-        padding-top: 0;
-    }
-
-    .timeline-content::before {
-        left: -28px;
-        top: 10px;
-    }
-
-    .timeline-content {
-        padding: 20px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-}
-/* Дополнительное оформление исторического раздела */
-
-.history-fact {
-    margin: 18px 0;
-    padding: 18px 20px;
-    background: #F7EEF5;
-    border-left: 4px solid var(--pink);
-    border-radius: 13px;
-}
-
-.history-fact strong {
-    display: block;
-    color: var(--purple);
-    margin-bottom: 7px;
-}
-
-.history-fact p {
-    margin: 0;
-}
-
-.history-fact ul {
-    padding-left: 20px;
-    color: var(--muted);
-}
-
-.history-conclusion {
-    margin-top: 40px;
-}
-
-.history-conclusion h3 {
-    color: var(--purple);
-    margin-bottom: 12px;
-}
-/* КИТАЙСКАЯ ЛИТЕРАТУРА */
-
-.period-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-    background: var(--lavender);
-    color: var(--purple);
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.period-date {
-    color: var(--coral);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.period-details {
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid #EADFEA;
-}
-
-.period-details summary {
-    cursor: pointer;
-    color: var(--purple);
-    font-size: 14px;
-    font-weight: 700;
-    list-style: none;
-}
-
-.period-details summary::-webkit-details-marker {
-    display: none;
-}
-
-.period-details summary::after {
-    content: "＋";
-    float: right;
-    font-size: 17px;
-}
-
-.period-details[open] summary::after {
-    content: "−";
-}
-
-.period-details-content {
-    padding-top: 15px;
-    color: var(--muted);
-    font-size: 13px;
+.poem-card p {
     line-height: 1.7;
 }
 
-.period-details-content p {
-    margin-bottom: 12px;
-}
-
-.period-details-content strong {
-    color: var(--purple);
-}
-
-.period-details-content ul {
-    padding-left: 20px;
-    margin: 10px 0 15px;
-}
-
-.literature-conclusion {
-    margin-top: 35px;
-    padding: 28px;
-    border-radius: 20px;
-    background: var(--lavender);
-    border-left: 5px solid var(--purple);
-}
-
-.literature-conclusion h3 {
-    color: var(--purple);
-    margin-bottom: 12px;
-    font-size: 22px;
-}
-
-.literature-conclusion p {
-    color: var(--muted);
-    line-height: 1.7;
-}
-
-.literature-conclusion p:last-child {
-    margin-bottom: 0;
-}
-/* ПОЭТИЧЕСКИЙ ДИАЛОГ */
-
-.poetry-authors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 35px;
-}
-
-.poetry-author {
-    background: var(--white);
-    border-radius: 22px;
-    padding: 28px;
-    box-shadow: 0 8px 25px rgba(73, 59, 80, 0.06);
-}
-
-.poetry-author-number {
-    display: inline-flex;
-    width: 38px;
-    height: 38px;
-    align-items: center;
-    justify-content: center;
-    background: var(--lavender);
-    color: var(--purple);
-    border-radius: 12px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.poetry-author-country {
-    color: var(--coral);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.poetry-author h3 {
-    color: var(--purple);
-    font-size: 25px;
-    margin: 8px 0;
-}
-
-.poetry-author h4 {
-    color: var(--dark);
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.poetry-author > p {
-    color: var(--muted);
-    line-height: 1.7;
-}
-
-.poetry-main-idea {
-    padding: 17px;
-    margin-top: 20px;
-    background: var(--lavender);
-    border-radius: 14px;
-}
-
-.poetry-main-idea strong {
-    color: var(--purple);
-}
-
-.poetry-main-idea p {
-    color: var(--muted);
-    margin: 7px 0 0;
-    line-height: 1.6;
-}
-
-.poetry-tags {
+.poem-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
-}
-
-.poetry-tags span {
-    background: #FCE9EF;
-    color: #A84E70;
-    border-radius: 20px;
-    padding: 7px 12px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.poetry-analysis {
-    background: var(--white);
-    border-radius: 22px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 25px rgba(73, 59, 80, 0.05);
-}
-
-.poetry-analysis-heading {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #EADFEA;
-    margin-bottom: 22px;
-}
-
-.analysis-label {
-    color: var(--coral);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.poetry-analysis-heading h3 {
-    color: var(--purple);
-    font-size: 24px;
-    margin-top: 10px;
-}
-
-.analysis-text h4 {
-    color: var(--purple);
-    font-size: 18px;
-    margin: 25px 0 12px;
-}
-
-.analysis-text > p {
-    color: var(--muted);
-    line-height: 1.75;
-}
-
-.quote-analysis {
-    background: #FBF7FA;
-    border-left: 4px solid var(--pink);
-    border-radius: 0 14px 14px 0;
-    padding: 18px 20px;
-    margin: 16px 0;
-}
-
-.quote-analysis .quote {
-    color: var(--purple);
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.literary-device {
-    display: inline-block;
-    color: #A84E70;
-    background: #FCE9EF;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.quote-analysis > p:last-child {
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 0;
-}
-
-.poetry-comparison {
-    margin-top: 35px;
-}
-
-.poetry-comparison .section-heading h3 {
-    color: var(--purple);
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-.comparison-columns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.comparison-column {
-    padding: 25px;
-    background: var(--white);
-    border-radius: 20px;
-}
-
-.comparison-column h4 {
-    color: var(--purple);
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.comparison-column ul {
-    padding-left: 20px;
-    color: var(--muted);
-    line-height: 1.8;
-}
-
-.comparison-column li {
-    margin-bottom: 8px;
-}
-
-.autumn-contrast {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 20px;
-    align-items: center;
-    margin-top: 22px;
-    padding: 25px;
-    border-radius: 20px;
-    background: var(--lavender);
-    text-align: center;
-}
-
-.autumn-contrast span {
-    display: block;
-    color: var(--coral);
-    font-size: 11px;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.autumn-contrast strong {
-    display: block;
-    color: var(--purple);
-    line-height: 1.5;
-}
-
-.contrast-symbol {
-    font-size: 27px;
-    color: var(--pink);
-}
-
-.poetry-dialogue {
-    margin-top: 35px;
-    padding: 30px;
-    border-radius: 22px;
-
-background: var(--purple);
-    color: white;
-}
-
-.poetry-dialogue h3 {
-    font-size: 25px;
-    margin: 12px 0 20px;
-}
-
-.poetry-dialogue > p {
-    color: #F5EAF8;
-    line-height: 1.8;
-}
-
-.poetry-final-thought {
-    padding: 20px;
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 15px;
-}
-
-.poetry-final-thought p {
-    line-height: 1.8;
-    margin: 0;
-    font-weight: 600;
-}
-
-.survey-poems {
-    margin-top: 35px;
-    padding: 30px;
-    background: var(--white);
-    border-radius: 22px;
-}
-
-.survey-poems h3 {
-    color: var(--purple);
-    font-size: 24px;
-    margin: 12px 0;
-}
-
-.survey-poems > p {
-    color: var(--muted);
-    line-height: 1.7;
-}
-
-.survey-poem-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-top: 22px;
-}
-
-.survey-poem-card {
-    padding: 22px;
-    background: var(--lavender);
-    border-radius: 17px;
-}
-
-.survey-poem-card span {
-    color: var(--coral);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.survey-poem-card h4 {
-    color: var(--purple);
-    font-size: 19px;
-    margin: 12px 0 5px;
-}
-
-.survey-poem-card p {
-    color: var(--dark);
-    font-weight: 700;
-}
-
-.survey-poem-card small {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-.survey-note {
-    margin-top: 18px;
-    font-size: 13px;
-}
-
-@media (max-width: 700px) {
-    .poetry-authors,
-    .comparison-columns,
-    .survey-poem-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .poetry-analysis,
-    .poetry-author,
-    .poetry-dialogue,
-    .survey-poems {
-        padding: 22px;
-    }
-
-    .autumn-contrast {
-        grid-template-columns: 1fr;
-    }
-
-    .contrast-symbol {
-        transform: rotate(90deg);
-    }
-}
-/* АНКЕТИРОВАНИЕ */
-
-.survey-intro {
-    background: var(--white);
-    padding: 28px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 20px rgba(73, 59, 80, 0.05);
-}
-
-.survey-intro h3 {
-    color: var(--purple);
-    margin-bottom: 12px;
-}
-
-.survey-intro p {
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-
-.survey-form {
-    display: grid;
-    gap: 22px;
-}
-
-.survey-question {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 5px 20px rgba(73, 59, 80, 0.05);
-}
-
-.question-number {
-    display: inline-block;
-    color: var(--pink);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 13px;
-}
-
-.survey-question h3 {
-    color: var(--dark);
-    font-size: 19px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.survey-option {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 13px 15px;
-    margin-top: 9px;
-    border: 1px solid #EEE4EF;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.2s;
-    color: var(--muted);
-}
-
-.survey-option:hover {
-    background: #F8F1F8;
-    border-color: var(--pink);
-}
-
-.survey-option input {
-    margin-top: 4px;
-    accent-color: var(--purple);
-}
-
-.survey-option span {
-    line-height: 1.5;
-}
-
-.survey-question textarea {
-    width: 100%;
-    min-height: 100px;
-    margin-top: 16px;
-    padding: 14px;
-    border: 1px solid #E7DCE9;
-    border-radius: 12px;
-    resize: vertical;
-    font: inherit;
-    background: #FFFCFD;
-}
-
-.survey-question textarea:focus {
-    outline: none;
-    border-color: var(--purple);
-}
-
-.scale-options {
-    display: flex;
-    justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 20px
 }
 
-.scale-options label {
-    flex: 1;
-    min-width: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.scale-options input {
-    accent-color: var(--purple);
-}
-
-.scale-options label span {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #F1E7F3;
-    color: var(--purple);
-    font-weight: 800;
-}
-
-.scale-options small {
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.4;
-}
-
-.survey-submit {
-    justify-self: start;
-    border: none;
-    border-radius: 30px;
-    padding: 15px 30px;
-    background: var(--purple);
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.survey-submit:hover {
-    background: var(--pink);
-    transform: translateY(-2px);
-}
-
-.survey-result {
-    display: none;
-    padding: 20px;
-    border-radius: 14px;
-    background: #EAF5ED;
-    color: #315D3B;
-    line-height: 1.6;
-}
-
-.survey-note {
-    margin-top: 22px;
-    padding: 16px 20px;
-    background: #F1EAF4;
-    border-radius: 12px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-    .survey-question,
-    .survey-intro {
-        padding: 20px;
-    }
-
-    .survey-question h3 {
-        font-size: 17px;
-    }
-
-    .scale-options {
-        gap: 14px;
-    }
-
-    .scale-options label {
-        min-width: 45px;
-    }
-}
-.survey-form {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.survey-question {
-    background: var(--white);
-    padding: 25px;
-    margin-bottom: 22px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(70, 45, 70, 0.06);
-}
-
-.survey-question h3 {
-    color: var(--purple);
-    margin-bottom: 18px;
-}
-
-.survey-question label {
-    display: block;
-    margin: 13px 0;
-    line-height: 1.5;
-    cursor: pointer;
-}
-
-.survey-question input[type="radio"] {
-    accent-color: var(--purple);
-    margin-right: 9px;
-}
-
-.survey-question textarea,
-.survey-question input[type="text"] {
-    width: 100%;
-    padding: 13px;
-    margin-top: 12px;
-    border: 1px solid #DCCDDD;
-    border-radius: 10px;
-    font: inherit;
-    box-sizing: border-box;
-}
-
-.survey-question textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.survey-submit {
-    display: block;
-    margin: 30px auto;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
-    background: var(--purple);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.survey-submit:hover {
-    opacity: 0.85;
-}
-
-.survey-result {
-    text-align: center;
-    color: var(--purple);
-    font-weight: bold;
-}
-.google-form-container {
-    max-width: 850px;
-    margin: 35px auto;
-    padding: 15px;
-    background: white;
+.poem-tags span {
+    background: #EDE2F4;
+    color: #76518E;
+    padding: 8px 14px;
     border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(70, 45, 70, 0.08);
-    overflow: hidden;
-}
-
-.google-form-container iframe {
-    display: block;
-    width: 100%;
-    min-height: 1200px;
-    border: none;
-    border-radius: 12px;
-}
-/* Оформление раздела отзывов */
-
-.reviews-invite {
-    max-width: 750px;
-    margin: 35px auto 55px;
-    padding: 35px;
-    text-align: center;
-    background: #FFF9F6;
-    border: 1px solid #F1DFE8;
-    border-radius: 22px;
-    box-shadow: 0 8px 25px rgba(70, 45, 70, 0.07);
-}
-
-.reviews-invite-icon {
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.reviews-invite h3,
-.published-reviews h3 {
-    color: #76518E;
-    font-size: 23px;
-    margin-bottom: 14px;
-}
-
-.reviews-invite p {
-    color: #493B50;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.review-button {
-    display: inline-block;
-    padding: 14px 30px;
-    background: #76518E;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.review-button:hover {
-    background: #E98AAE;
-    transform: translateY(-2px);
-}
-
-.published-reviews {
-    margin-top: 45px;
-}
-
-.published-reviews > h3 {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.reviews-empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 25px;
-    background: #F7EEF5;
-    border-radius: 16px;
-    color: #76518E;
-    line-height: 1.6;
-}
-
-.review-card {
-    padding: 25px;
-    background: white;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(70, 45, 70, 0.07);
-    border-left: 4px solid #E98AAE;
-}
-
-.review-card h4 {
-    color: #76518E;
-    margin-bottom: 10px;
-}
-
-.review-card p {
-    color: #493B50;
-    line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-    .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .reviews-invite {
-        padding: 25px 18px;
-    }
+    font-size: 14px;
 }
